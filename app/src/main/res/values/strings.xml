@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">MyFirstGItHubProject</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">菜单</string>
+    <string name="title_notifications">通知</string>
 </resources>
