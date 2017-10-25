@@ -2,16 +2,19 @@ package com.nb.mengbiao.myfirstgithubproject;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import com.nb.mengbiao.myfirstgithubproject.base.BaseToolBarActivity;
+import com.nb.mengbiao.myfirstgithubproject.base.toast.ToastUtil;
+
+public class MainActivity extends BaseToolBarActivity {
 
     private Bundle savedInstanceState;
     private DrawerLayout drawerLayout;
@@ -28,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        initToolBar("野心");
         this.savedInstanceState = savedInstanceState;
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -37,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         initFramgent();
         mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, plantArr));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    protected void initToolBar(String title) {
+        super.initToolBar(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     private void initFramgent() {
@@ -54,25 +66,38 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
+
         }
     }
 
     private void selectItem(int position) {
-        // Create a new fragment and specify the planet to show based on position
-        Fragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putInt(HomeFragment.ARG_PLANET_NUMBER, position);
-        fragment.setArguments(args);
-
-        // Insert the fragment by replacing any existing fragment
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .commit();
-
         // Highlight the selected item, update the title, and close the drawer
         mDrawerList.setItemChecked(position, true);
         setTitle(plantArr[position]);
         drawerLayout.closeDrawer(mDrawerList);
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    //mTextMessage.setText(R.string.title_home);
+                    ToastUtil.showToast(getString(R.string.title_home));
+                    return true;
+                case R.id.navigation_dashboard:
+                    //mTextMessage.setText(R.string.title_dashboard);
+                    ToastUtil.showToast(getString(R.string.title_dashboard));
+                    return true;
+                case R.id.navigation_notifications:
+                    // mTextMessage.setText(R.string.title_notifications);
+                    ToastUtil.showToast(getString(R.string.title_notifications));
+                    return true;
+            }
+            return false;
+        }
+
+    };
 }
