@@ -31,7 +31,6 @@
             android:text="大标题"
             android:textColor="#343434"
             android:textSize="34sp"
-            android:textStyle="bold"
             android:visibility="visible" />
 
         <TextView

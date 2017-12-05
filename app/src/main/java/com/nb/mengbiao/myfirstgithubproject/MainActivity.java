@@ -1,5 +1,6 @@
 package com.nb.mengbiao.myfirstgithubproject;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -103,12 +104,15 @@ public class MainActivity extends BaseToolBarActivity {
 
     @Override
     protected void headerLeftBtnHandle() {
-        ToastUtil.showToast("我回退了");
+        finish();
     }
 
     @Override
     protected void headerRightTextBtnHandle() {
-        ToastUtil.showToast("我保存了");
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void initFramgent() {

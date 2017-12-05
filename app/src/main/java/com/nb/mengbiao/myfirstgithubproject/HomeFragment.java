@@ -3,6 +3,7 @@ package com.nb.mengbiao.myfirstgithubproject;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ public class HomeFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.home_fragment, container, false);
         mTextMessage = (TextView) rootView.findViewById(R.id.message);
+        mTextMessage.setText(Html.fromHtml("v1.6.1&ensp;&ensp;&ensp;<font color='#00BAE8'>有新版本可升级 ></font>"));
         return rootView;
     }
 

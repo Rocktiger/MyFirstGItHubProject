@@ -1,7 +1,11 @@
 package com.nb.mengbiao.myfirstgithubproject.base;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nb.mengbiao.myfirstgithubproject.MyApplication;
 import com.nb.mengbiao.myfirstgithubproject.R;
 
 
@@ -36,6 +41,7 @@ public class TitleBar extends FrameLayout {
     private TextView tv_left_title;
 
     private TextView tv_right_btn;
+    private Context mContext;
 
     public TitleBar(Context context) {
         super(context);
@@ -58,6 +64,13 @@ public class TitleBar extends FrameLayout {
         fl_right_container = (FrameLayout) findViewById(R.id.fl_right_container);
         tv_left_title = (TextView) findViewById(R.id.tv_head_title);
         tv_right_btn = (TextView) findViewById(R.id.tv_head_text_button);
+        this.mContext = context;
+        // Typeface typeface = Typeface.createFromAsset(mContext.getAssets(), "Roboto-Light.ttf");
+        Typeface typeface = Typeface.createFromAsset(mContext.getAssets(), "Roboto-Medium.ttf");
+        // 设置字体类型、
+        tv_left_title.getPaint().setTypeface(typeface);
+        tv_left_title.getPaint().setFakeBoldText(true);
+
     }
 
     private View.OnClickListener mBackListener;
