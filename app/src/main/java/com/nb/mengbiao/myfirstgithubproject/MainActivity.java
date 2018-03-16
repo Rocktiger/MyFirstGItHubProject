@@ -9,6 +9,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,8 +21,9 @@ import android.widget.TextView;
 
 import com.nb.mengbiao.myfirstgithubproject.base.BaseToolBarActivity;
 import com.nb.mengbiao.myfirstgithubproject.base.toast.ToastUtil;
+import com.nb.mengbiao.myfirstgithubproject.util.StatusBarUtil;
 
-public class MainActivity extends BaseToolBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Bundle savedInstanceState;
     private DrawerLayout drawerLayout;
@@ -39,10 +41,6 @@ public class MainActivity extends BaseToolBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
-    }
-
-    @Override
-    protected void setContentView() {
         setContentView(R.layout.activity_main);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -50,70 +48,10 @@ public class MainActivity extends BaseToolBarActivity {
         initFramgent();
         mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, plantArr));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
     }
 
-    @Override
-    protected void initializeData(Bundle saveInstance) {
-        initTitle("野心");
-        setHeaderLeft();
-        setHeaderRight("保存");
-        setHeaderRightView();
-        setHeaderLeftImg(R.drawable.new_detele_airport_information);
-
-    }
-
-    /**
-     * 全选控件
-     */
-    private CheckBox checkBox;
-    LinearLayout checkAllView;
-
-    private void setHeaderRightView() {
-        checkAllView = new LinearLayout(this);
-        checkAllView.setOrientation(LinearLayout.HORIZONTAL);
-
-        TextView textView = new TextView(this);
-        textView.setText("全选");
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        textView.setTextColor(Color.parseColor("#000000"));
-
-        checkBox = new CheckBox(this);
-        checkBox.setWidth(20);
-        checkBox.setHeight(20);
-        checkBox.setButtonDrawable(new ColorDrawable());
-        checkBox.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_invoice_type_selector));
-
-        LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        LinearLayout.LayoutParams checkBoxParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        checkBoxParams.setMargins(18, 0, 0, 0);
-
-        checkAllView.addView(textView, textViewParams);
-        checkAllView.addView(checkBox, checkBoxParams);
-
-        toolbar.addRightContainerChildView(checkAllView);
-
-        checkBox.setOnClickListener(v -> ToastUtil.showToast("全选"));
-    }
-
-    @Override
-    protected void headerLeftBtnHandle() {
-        finish();
-    }
-
-    @Override
-    protected void headerRightTextBtnHandle() {
-        Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
 
     private void initFramgent() {
         if (savedInstanceState != null) {
@@ -137,7 +75,7 @@ public class MainActivity extends BaseToolBarActivity {
     private void selectItem(int position) {
         // Highlight the selected item, update the title, and close the drawer
         mDrawerList.setItemChecked(position, true);
-        initTitle(plantArr[position]);
+        //initTitle(plantArr[position]);
         drawerLayout.closeDrawer(mDrawerList);
     }
 
@@ -147,14 +85,17 @@ public class MainActivity extends BaseToolBarActivity {
             case R.id.navigation_home:
                 //mTextMessage.setText(R.string.title_home);
                 ToastUtil.showToast(getString(R.string.title_home));
+                StatusBarUtil.setColor(this, Color.RED);
                 return true;
             case R.id.navigation_dashboard:
                 //mTextMessage.setText(R.string.title_dashboard);
                 ToastUtil.showToast(getString(R.string.title_dashboard));
+                StatusBarUtil.setTranslucentForDrawerLayout(this, drawerLayout, 112);
                 return true;
             case R.id.navigation_notifications:
                 // mTextMessage.setText(R.string.title_notifications);
                 ToastUtil.showToast(getString(R.string.title_notifications));
+                StatusBarUtil.setTransparentForDrawerLayout(this, drawerLayout);
                 return true;
         }
         return false;
