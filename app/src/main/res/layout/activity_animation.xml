@@ -26,6 +26,56 @@
 
     </com.nb.mengbiao.myfirstgithubproject.view.SmileRatingView>
 
+    <com.nb.mengbiao.myfirstgithubproject.tablayout.TagFlowLayout
+        android:id="@+id/tfl_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/smile_rating"
+        android:paddingLeft="32dp"
+        android:layout_marginRight="16dp"
+         >
+
+    </com.nb.mengbiao.myfirstgithubproject.tablayout.TagFlowLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tfl_tag"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/tag_bg"
+            android:gravity="center"
+            android:textColor="@drawable/tag_selector_textcolor"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/tag_bg"
+            android:gravity="center"
+            android:textColor="@drawable/tag_selector_textcolor"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/tag_bg"
+            android:gravity="center"
+            android:textColor="@drawable/tag_selector_textcolor"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
     <!--<EditText-->
     <!--android:layout_width="200dp"-->
     <!--android:layout_height="50dp"-->
