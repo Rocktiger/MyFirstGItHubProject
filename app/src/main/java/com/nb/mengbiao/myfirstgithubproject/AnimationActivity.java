@@ -3,7 +3,10 @@ package com.nb.mengbiao.myfirstgithubproject;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.nb.mengbiao.myfirstgithubproject.base.toast.ToastUtil;
 import com.nb.mengbiao.myfirstgithubproject.util.StatusBarUtil;
+import com.nb.mengbiao.myfirstgithubproject.view.SmileRatingView;
 
 /**
  * Created by mengbiao on 2018/3/16.
@@ -19,6 +22,11 @@ public class AnimationActivity extends AppCompatActivity {
     }
 
     private void intanimation() {
+        SmileRatingView smileRatingView = (SmileRatingView) findViewById(R.id.smile_rating);
+        smileRatingView.setOnSmileRatingChangeListener(ratingGrade -> {
+            ToastUtil.showToast(ratingGrade+"");
+
+        });
 //        ImageView iv_shade = (ImageView) findViewById(R.id.iv_shade);
 //        Animation translateAnimation = new TranslateAnimation(0,500,0,500);
 //        translateAnimation.setDuration(5000);
