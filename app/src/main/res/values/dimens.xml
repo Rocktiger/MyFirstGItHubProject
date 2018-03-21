@@ -3,4 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="size12" >12sp</dimen>
+    <dimen name="spit_small">2dp</dimen>
 </resources>

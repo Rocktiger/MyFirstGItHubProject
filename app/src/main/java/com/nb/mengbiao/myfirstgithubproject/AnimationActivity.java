@@ -12,6 +12,7 @@ import com.nb.mengbiao.myfirstgithubproject.tablayout.FlowLayout;
 import com.nb.mengbiao.myfirstgithubproject.tablayout.TagAdapter;
 import com.nb.mengbiao.myfirstgithubproject.tablayout.TagFlowLayout;
 import com.nb.mengbiao.myfirstgithubproject.util.StatusBarUtil;
+import com.nb.mengbiao.myfirstgithubproject.view.CommentDetailView;
 import com.nb.mengbiao.myfirstgithubproject.view.SmileRatingView;
 
 /**
@@ -23,11 +24,22 @@ public class AnimationActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
-        StatusBarUtil.setTransparentForImageView(this,null);
+        StatusBarUtil.setTransparentForImageView(this, null);
         intanimation();
         intTagFlow();
+        initDeatil();
     }
+
+    private void initDeatil() {
+        CommentDetailView cdv_deatil = (CommentDetailView) findViewById(R.id.cdv_deatil);
+        cdv_deatil.addTagView("接驾准时、车技高超、服务热情、干净整洁、活地图");
+        cdv_deatil.addLineView();
+        cdv_deatil.addSuggestView("很好的乘车体验，感谢司机热情服务");
+
+    }
+
     private final String[] COMMENT_HIGH = new String[]{"神准时", "车技高超", "服务热情", "干净整洁", "活地图"};
+
     private void intTagFlow() {
         final LayoutInflater mInflater = LayoutInflater.from(this);
         TagFlowLayout tfl = (TagFlowLayout) findViewById(R.id.tfl_tag);
@@ -45,7 +57,7 @@ public class AnimationActivity extends AppCompatActivity {
     private void intanimation() {
         SmileRatingView smileRatingView = (SmileRatingView) findViewById(R.id.smile_rating);
         smileRatingView.setOnSmileRatingChangeListener(ratingGrade -> {
-            ToastUtil.showToast(ratingGrade+"");
+            ToastUtil.showToast(ratingGrade + "");
 
         });
 //        ImageView iv_shade = (ImageView) findViewById(R.id.iv_shade);

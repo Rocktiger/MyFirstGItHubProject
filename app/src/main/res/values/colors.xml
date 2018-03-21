@@ -17,6 +17,8 @@
     <color name="lable_check_true">#31B5E6</color>
     <color name="lable_check_flase">#B4B4B4</color>
 
-
+    <color name="color_4A4A4A">#4a4a4a</color>
+    <color name="color_DDDDDD">#DDDDDD</color>
+    <color name="color_9E9E9E"> #9E9E9E</color>
     <color name="common_bg_head">#383f54</color>
 </resources>

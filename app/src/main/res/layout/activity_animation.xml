@@ -32,12 +32,20 @@
         android:paddingLeft="32dp" />
 
     <com.nb.mengbiao.myfirstgithubproject.view.CountEditText
+        android:id="@+id/cet_suees"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@+id/tfl_tag"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="10dp"
+        />
+    <com.nb.mengbiao.myfirstgithubproject.view.CommentDetailView
+        android:id="@+id/cdv_deatil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/cet_suees"
         />
     <!--<EditText-->
     <!--android:layout_width="200dp"-->
