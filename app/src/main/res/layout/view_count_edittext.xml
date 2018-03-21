@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@null"
+        android:hint="更多评论可以写这里哦~"
+        android:gravity="start"
+        android:lineSpacingExtra="4dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textColor="#4A4A4A"
+        android:textColorHint="#BFC0C5"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_input_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="6dp"
+        android:text="0/50"
+        android:textColor="#BFC0C5"
+        android:textSize="13sp" />
+</RelativeLayout>

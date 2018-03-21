@@ -21,7 +21,7 @@
         android:layout_height="100dp"
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
-        android:gravity="center"/>
+        android:gravity="center" />
 
     <com.nb.mengbiao.myfirstgithubproject.tablayout.TagFlowLayout
         android:id="@+id/tfl_tag"
@@ -29,8 +29,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/smile_rating"
         android:layout_marginRight="16dp"
-        android:paddingLeft="32dp"/>
+        android:paddingLeft="32dp" />
 
+    <com.nb.mengbiao.myfirstgithubproject.view.CountEditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/tfl_tag"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="10dp"
+        />
     <!--<EditText-->
     <!--android:layout_width="200dp"-->
     <!--android:layout_height="50dp"-->
