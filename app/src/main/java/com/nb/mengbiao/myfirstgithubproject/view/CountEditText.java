@@ -69,4 +69,8 @@ public class CountEditText extends RelativeLayout {
             }
         });
     }
+
+    public EditText getEditText(){
+        return et_input;
+    }
 }

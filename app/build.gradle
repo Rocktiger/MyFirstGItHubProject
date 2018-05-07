@@ -33,6 +33,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-vector-drawable:25.3.1'
+    compile 'cn.dreamtobe.kpswitch:library:1.6.1'
     testCompile 'junit:junit:4.12'
 }
 retrolambda {//指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式

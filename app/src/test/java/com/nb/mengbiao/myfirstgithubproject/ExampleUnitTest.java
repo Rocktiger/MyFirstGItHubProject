@@ -2,6 +2,9 @@ package com.nb.mengbiao.myfirstgithubproject;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -13,5 +16,13 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
+        List<String> list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.remove(1);
+        for (String s : list) {
+            System.out.println(s +"----" +list.indexOf(s));
+        }
     }
 }
